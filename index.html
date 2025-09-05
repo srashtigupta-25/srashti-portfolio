@@ -1,0 +1,1414 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Srashti - Senior Software Developer | Electric Code & Creative Poetry</title>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Inter', sans-serif;
+            line-height: 1.6;
+            color: #333;
+            overflow-x: hidden;
+        }
+
+        /* Lightning Animation */
+        .lightning {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            pointer-events: none;
+            z-index: 1;
+        }
+
+        .lightning-bolt {
+            position: absolute;
+            width: 4px;
+            height: 100px;
+            background: linear-gradient(45deg, #FFD700, #FFA500, #FFD700);
+            opacity: 0;
+            animation: lightning 3s infinite;
+        }
+
+        .lightning-bolt:nth-child(1) { left: 20%; animation-delay: 0s; }
+        .lightning-bolt:nth-child(2) { left: 40%; animation-delay: 1s; }
+        .lightning-bolt:nth-child(3) { left: 60%; animation-delay: 2s; }
+        .lightning-bolt:nth-child(4) { left: 80%; animation-delay: 0.5s; }
+
+        @keyframes lightning {
+            0%, 90%, 100% { opacity: 0; transform: scaleY(0); }
+            5%, 10% { opacity: 1; transform: scaleY(1); }
+        }
+
+        /* Navigation */
+        nav {
+            position: fixed;
+            top: 0;
+            width: 100%;
+            background: rgba(255, 255, 255, 0.95);
+            backdrop-filter: blur(10px);
+            z-index: 1000;
+            padding: 1rem 0;
+            transition: all 0.3s ease;
+        }
+
+        .nav-container {
+            max-width: 1200px;
+            margin: 0 auto;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 0 2rem;
+        }
+
+        .logo {
+            font-size: 1.5rem;
+            font-weight: 700;
+            background: linear-gradient(45deg, #FFD700, #FFA500);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+        }
+
+        .nav-links {
+            display: flex;
+            list-style: none;
+            gap: 2rem;
+        }
+
+        .nav-links a {
+            text-decoration: none;
+            color: #333;
+            font-weight: 500;
+            transition: color 0.3s ease;
+        }
+
+        .nav-links a:hover {
+            color: #FFD700;
+        }
+
+        /* Hero Section */
+        .hero {
+            min-height: 100vh;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            background: linear-gradient(135deg, #FFD700 0%, #FFA500 50%, #87CEEB 100%);
+            position: relative;
+            overflow: hidden;
+        }
+
+        .hero-content {
+            text-align: center;
+            z-index: 10;
+            max-width: 800px;
+            padding: 0 2rem;
+        }
+
+        .hero h1 {
+            font-size: 4rem;
+            font-weight: 700;
+            margin-bottom: 1rem;
+            color: white;
+            text-shadow: 2px 2px 4px rgba(0,0,0,0.3);
+            animation: fadeInUp 1s ease;
+        }
+
+        .hero .subtitle {
+            font-size: 1.5rem;
+            margin-bottom: 2rem;
+            color: white;
+            opacity: 0.9;
+            animation: fadeInUp 1s ease 0.2s both;
+        }
+
+        .hero .description {
+            font-size: 1.2rem;
+            margin-bottom: 1rem;
+            color: white;
+            opacity: 0.8;
+            animation: fadeInUp 1s ease 0.4s both;
+        }
+
+        .cta-button {
+            display: inline-block;
+            padding: 1rem 2rem;
+            background: white;
+            color: #FFD700;
+            text-decoration: none;
+            border-radius: 50px;
+            font-weight: 600;
+            font-size: 1.1rem;
+            transition: all 0.3s ease;
+            animation: fadeInUp 1s ease 0.6s both;
+            box-shadow: 0 10px 30px rgba(0,0,0,0.2);
+        }
+
+        .cta-button:hover {
+            transform: translateY(-3px);
+            box-shadow: 0 15px 40px rgba(0,0,0,0.3);
+        }
+
+        /* Floating Elements */
+        .floating-element {
+            position: absolute;
+            opacity: 0.1;
+            animation: float 6s ease-in-out infinite;
+        }
+
+        .floating-element:nth-child(1) {
+            top: 20%;
+            left: 10%;
+            animation-delay: 0s;
+        }
+
+        .floating-element:nth-child(2) {
+            top: 60%;
+            right: 10%;
+            animation-delay: 2s;
+        }
+
+        .floating-element:nth-child(3) {
+            bottom: 20%;
+            left: 20%;
+            animation-delay: 4s;
+        }
+
+        @keyframes float {
+            0%, 100% { transform: translateY(0px); }
+            50% { transform: translateY(-20px); }
+        }
+
+        @keyframes fadeInUp {
+            from {
+                opacity: 0;
+                transform: translateY(30px);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+        /* Section Styles */
+        .section {
+            padding: 5rem 0;
+            max-width: 1200px;
+            margin: 0 auto;
+            padding-left: 2rem;
+            padding-right: 2rem;
+        }
+
+        .section-title {
+            font-size: 3rem;
+            font-weight: 700;
+            text-align: center;
+            margin-bottom: 3rem;
+            background: linear-gradient(45deg, #FFD700, #FFA500);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+        }
+
+        /* About Section */
+        .about {
+            background: #f8f9fa;
+        }
+
+        .about-content {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 4rem;
+            align-items: center;
+        }
+
+        .about-text {
+            font-size: 1.1rem;
+            line-height: 1.8;
+        }
+
+        .about-text p {
+            margin-bottom: 1.5rem;
+        }
+
+        .highlight {
+            background: linear-gradient(45deg, #FFD700, #FFA500);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+            font-weight: 600;
+        }
+
+        .profile-image {
+            width: 100%;
+            max-width: 400px;
+            height: 400px;
+            background: linear-gradient(135deg, #FFD700, #FFA500);
+            border-radius: 20px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 8rem;
+            color: white;
+            box-shadow: 0 20px 40px rgba(0,0,0,0.1);
+            cursor: pointer;
+            transition: all 0.3s ease;
+        }
+
+        .profile-image:hover {
+            transform: scale(1.05);
+            box-shadow: 0 25px 50px rgba(0,0,0,0.2);
+        }
+
+        /* Skills Modal */
+        .skills-modal {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: rgba(0,0,0,0.8);
+            display: none;
+            justify-content: center;
+            align-items: center;
+            z-index: 10000;
+        }
+
+        .skills-modal-content {
+            background: white;
+            padding: 3rem;
+            border-radius: 20px;
+            max-width: 600px;
+            width: 90%;
+            max-height: 80vh;
+            overflow-y: auto;
+            position: relative;
+        }
+
+        .close-modal {
+            position: absolute;
+            top: 1rem;
+            right: 1rem;
+            background: none;
+            border: none;
+            font-size: 2rem;
+            cursor: pointer;
+            color: #666;
+        }
+
+        .skill-bar {
+            margin-bottom: 1.5rem;
+        }
+
+        .skill-label {
+            display: flex;
+            justify-content: space-between;
+            margin-bottom: 0.5rem;
+            font-weight: 600;
+        }
+
+        .skill-progress {
+            height: 20px;
+            background: #f0f0f0;
+            border-radius: 10px;
+            overflow: hidden;
+            position: relative;
+        }
+
+        .skill-fill {
+            height: 100%;
+            background: linear-gradient(45deg, #FFD700, #FFA500);
+            border-radius: 10px;
+            width: 0%;
+            transition: width 2s ease-in-out;
+            position: relative;
+        }
+
+        .skill-fill::after {
+            content: '⚡';
+            position: absolute;
+            right: 5px;
+            top: 50%;
+            transform: translateY(-50%);
+            color: white;
+            font-size: 0.8rem;
+        }
+
+        /* Projects Section */
+        .projects {
+            background: white;
+        }
+
+        .project-item {
+            background: #f8f9fa;
+            padding: 2rem;
+            border-radius: 15px;
+            margin-bottom: 2rem;
+            border-left: 5px solid #87CEEB;
+            transition: transform 0.3s ease;
+        }
+
+        .project-item:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 10px 30px rgba(0,0,0,0.1);
+        }
+
+        .project-title {
+            font-size: 1.5rem;
+            margin-bottom: 1rem;
+            color: #333;
+        }
+
+        .project-description {
+            margin-bottom: 1.5rem;
+            line-height: 1.6;
+        }
+
+        .project-features {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+            gap: 1rem;
+            margin-bottom: 1.5rem;
+        }
+
+        .feature-card {
+            background: white;
+            padding: 1rem;
+            border-radius: 10px;
+            text-align: center;
+            box-shadow: 0 2px 10px rgba(0,0,0,0.1);
+        }
+
+        .feature-icon {
+            font-size: 2rem;
+            margin-bottom: 0.5rem;
+        }
+
+        .tech-stack {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 0.5rem;
+            margin-top: 1rem;
+        }
+
+        .tech-tag {
+            background: #87CEEB;
+            color: white;
+            padding: 0.3rem 0.8rem;
+            border-radius: 15px;
+            font-size: 0.8rem;
+            font-weight: 500;
+        }
+
+        /* Leadership Section */
+        .leadership {
+            background: #f8f9fa;
+        }
+
+        .leadership-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 2rem;
+        }
+
+        .leadership-card {
+            background: white;
+            padding: 2rem;
+            border-radius: 15px;
+            box-shadow: 0 5px 15px rgba(0,0,0,0.1);
+            transition: transform 0.3s ease;
+            border-left: 5px solid #FFD700;
+        }
+
+        .leadership-card:hover {
+            transform: translateY(-5px);
+        }
+
+        .leadership-card h3 {
+            color: #FFD700;
+            margin-bottom: 1rem;
+            font-size: 1.3rem;
+        }
+
+        .leadership-card ul {
+            list-style: none;
+            padding: 0;
+        }
+
+        .leadership-card li {
+            margin-bottom: 0.8rem;
+            position: relative;
+            padding-left: 1.5rem;
+        }
+
+        .leadership-card li:before {
+            content: "⚡";
+            position: absolute;
+            left: 0;
+            color: #FFD700;
+        }
+
+        /* Awards Section */
+        .awards {
+            background: linear-gradient(135deg, #FFD700 0%, #FFA500 100%);
+            color: white;
+        }
+
+        .awards-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 1.5rem;
+        }
+
+        .award-card {
+            background: rgba(255, 255, 255, 0.1);
+            backdrop-filter: blur(10px);
+            padding: 1.5rem;
+            border-radius: 15px;
+            text-align: center;
+            transition: transform 0.3s ease;
+            border: 1px solid rgba(255, 255, 255, 0.2);
+        }
+
+        .award-card:hover {
+            transform: translateY(-5px);
+            background: rgba(255, 255, 255, 0.2);
+        }
+
+        .award-icon {
+            font-size: 2.5rem;
+            margin-bottom: 1rem;
+        }
+
+        .award-title {
+            font-size: 1.1rem;
+            font-weight: 600;
+            margin-bottom: 0.5rem;
+        }
+
+        .award-company {
+            font-size: 0.9rem;
+            opacity: 0.9;
+            margin-bottom: 0.5rem;
+        }
+
+        .award-date {
+            font-size: 0.8rem;
+            opacity: 0.8;
+        }
+
+        /* Community Section */
+        .community {
+            background: white;
+        }
+
+        .community-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 2rem;
+        }
+
+        .community-card {
+            background: #f8f9fa;
+            padding: 2rem;
+            border-radius: 15px;
+            border-left: 5px solid #87CEEB;
+            transition: transform 0.3s ease;
+        }
+
+        .community-card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 10px 30px rgba(0,0,0,0.1);
+        }
+
+        .community-card h3 {
+            color: #87CEEB;
+            margin-bottom: 1rem;
+            font-size: 1.3rem;
+        }
+
+        .community-card ul {
+            list-style: none;
+            padding: 0;
+        }
+
+        .community-card li {
+            margin-bottom: 0.8rem;
+            position: relative;
+            padding-left: 1.5rem;
+        }
+
+        .community-card li:before {
+            content: "🌱";
+            position: absolute;
+            left: 0;
+            color: #87CEEB;
+        }
+
+        /* Experience Section */
+        .experience {
+            background: white;
+        }
+
+        .experience-grid {
+            display: grid;
+            gap: 2rem;
+        }
+
+        .experience-item {
+            background: #f8f9fa;
+            padding: 2rem;
+            border-radius: 15px;
+            border-left: 5px solid #FFD700;
+            transition: transform 0.3s ease;
+        }
+
+        .experience-item:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 10px 30px rgba(0,0,0,0.1);
+        }
+
+        .experience-item h3 {
+            font-size: 1.5rem;
+            margin-bottom: 0.5rem;
+            color: #333;
+        }
+
+        .experience-item .company {
+            color: #FFD700;
+            font-weight: 600;
+            margin-bottom: 1rem;
+        }
+
+        .experience-item .duration {
+            color: #666;
+            font-size: 0.9rem;
+            margin-bottom: 1rem;
+        }
+
+        .experience-item ul {
+            list-style: none;
+            padding-left: 0;
+        }
+
+        .experience-item li {
+            margin-bottom: 0.5rem;
+            position: relative;
+            padding-left: 1.5rem;
+        }
+
+        .experience-item li:before {
+            content: "⚡";
+            position: absolute;
+            left: 0;
+            color: #FFD700;
+        }
+
+        /* Skills Section */
+        .skills {
+            background: #f8f9fa;
+        }
+
+        .skills-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 2rem;
+        }
+
+        .skill-category {
+            background: white;
+            padding: 2rem;
+            border-radius: 15px;
+            text-align: center;
+            box-shadow: 0 5px 15px rgba(0,0,0,0.1);
+            transition: transform 0.3s ease;
+        }
+
+        .skill-category:hover {
+            transform: translateY(-5px);
+        }
+
+        .skill-category h3 {
+            font-size: 1.3rem;
+            margin-bottom: 1rem;
+            color: #FFD700;
+        }
+
+        .skill-tags {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 0.5rem;
+            justify-content: center;
+        }
+
+        .skill-tag {
+            background: linear-gradient(45deg, #FFD700, #FFA500);
+            color: white;
+            padding: 0.5rem 1rem;
+            border-radius: 20px;
+            font-size: 0.9rem;
+            font-weight: 500;
+        }
+
+        /* Education Section */
+        .education {
+            background: white;
+        }
+
+        .education-item {
+            background: #f8f9fa;
+            padding: 2rem;
+            border-radius: 15px;
+            text-align: center;
+            border-left: 5px solid #87CEEB;
+        }
+
+        .education-item h3 {
+            font-size: 1.5rem;
+            margin-bottom: 0.5rem;
+            color: #333;
+        }
+
+        .education-item .university {
+            color: #87CEEB;
+            font-weight: 600;
+            margin-bottom: 0.5rem;
+        }
+
+        .education-item .degree {
+            color: #666;
+            margin-bottom: 1rem;
+        }
+
+        /* Poetry Section */
+        .poetry {
+            background: linear-gradient(135deg, #FFD700 0%, #FFA500 100%);
+            color: white;
+        }
+
+        .poetry-content {
+            text-align: center;
+            max-width: 600px;
+            margin: 0 auto;
+        }
+
+        .poetry-content h3 {
+            font-size: 1.5rem;
+            margin-bottom: 2rem;
+        }
+
+        .poetry-content p {
+            font-size: 1.1rem;
+            line-height: 1.8;
+            margin-bottom: 2rem;
+            font-style: italic;
+        }
+
+        .instagram-link {
+            display: inline-block;
+            padding: 1rem 2rem;
+            background: white;
+            color: #FFD700;
+            text-decoration: none;
+            border-radius: 50px;
+            font-weight: 600;
+            transition: all 0.3s ease;
+        }
+
+        .instagram-link:hover {
+            transform: translateY(-3px);
+            box-shadow: 0 10px 30px rgba(0,0,0,0.2);
+        }
+
+        /* Contact Section */
+        .contact {
+            background: #333;
+            color: white;
+            text-align: center;
+        }
+
+        .contact-content {
+            max-width: 600px;
+            margin: 0 auto;
+        }
+
+        .contact-content h3 {
+            font-size: 2rem;
+            margin-bottom: 2rem;
+            color: #FFD700;
+        }
+
+        .contact-content p {
+            font-size: 1.1rem;
+            margin-bottom: 2rem;
+            opacity: 0.9;
+        }
+
+        .contact-links {
+            display: flex;
+            justify-content: center;
+            gap: 2rem;
+            flex-wrap: wrap;
+        }
+
+        .contact-link {
+            display: inline-flex;
+            align-items: center;
+            gap: 0.5rem;
+            padding: 1rem 2rem;
+            background: #FFD700;
+            color: #333;
+            text-decoration: none;
+            border-radius: 50px;
+            font-weight: 600;
+            transition: all 0.3s ease;
+        }
+
+        .contact-link:hover {
+            transform: translateY(-3px);
+            box-shadow: 0 10px 30px rgba(255, 215, 0, 0.3);
+        }
+
+        /* Responsive Design */
+        @media (max-width: 768px) {
+            .hero h1 {
+                font-size: 2.5rem;
+            }
+
+            .hero .subtitle {
+                font-size: 1.2rem;
+            }
+
+            .about-content {
+                grid-template-columns: 1fr;
+                gap: 2rem;
+            }
+
+            .nav-links {
+                display: none;
+            }
+
+            .section {
+                padding: 3rem 1rem;
+            }
+
+            .section-title {
+                font-size: 2rem;
+            }
+
+            .contact-links {
+                flex-direction: column;
+                align-items: center;
+            }
+        }
+
+        /* Scroll animations */
+        .fade-in {
+            opacity: 0;
+            transform: translateY(30px);
+            transition: all 0.6s ease;
+        }
+
+        .fade-in.visible {
+            opacity: 1;
+            transform: translateY(0);
+        }
+    </style>
+</head>
+<body>
+    <!-- Lightning Effects -->
+    <div class="lightning">
+        <div class="lightning-bolt"></div>
+        <div class="lightning-bolt"></div>
+        <div class="lightning-bolt"></div>
+        <div class="lightning-bolt"></div>
+    </div>
+
+    <!-- Navigation -->
+    <nav>
+        <div class="nav-container">
+            <div class="logo">⚡ Srashti</div>
+            <ul class="nav-links">
+                <li><a href="#about">About</a></li>
+                <li><a href="#experience">Experience</a></li>
+                <li><a href="#projects">Projects</a></li>
+                <li><a href="#leadership">Leadership</a></li>
+                <li><a href="#awards">Awards</a></li>
+                <li><a href="#skills">Skills</a></li>
+                <li><a href="#education">Education</a></li>
+                <li><a href="#community">Community</a></li>
+                <li><a href="#poetry">Poetry</a></li>
+                <li><a href="#contact">Contact</a></li>
+            </ul>
+        </div>
+    </nav>
+
+    <!-- Hero Section -->
+    <section class="hero">
+        <div class="floating-element">⚡</div>
+        <div class="floating-element">💻</div>
+        <div class="floating-element">📝</div>
+        
+        <div class="hero-content">
+            <h1>Hi, I'm Srashti!</h1>
+            <p class="subtitle">Senior Software Developer & Creative Soul</p>
+            <p class="description">
+                ⚡ 5 years of electrifying experience in Java, Spring Boot, and Microservices<br>
+                🎓 MS in Computer Science at Northeastern University | Seeking Summer 2026 Internships
+            </p>
+            <a href="#contact" class="cta-button">Let's Connect! ⚡</a>
+        </div>
+    </section>
+
+    <!-- About Section -->
+    <section id="about" class="section about">
+        <h2 class="section-title fade-in">About Me</h2>
+        <div class="about-content">
+            <div class="about-text fade-in">
+                <p>
+                    I'm a passionate <span class="highlight">Senior Software Developer</span> with 5 years of experience 
+                    building robust backend systems using Java, Spring Boot, and microservices architecture. 
+                    My journey in tech has been electrifying, just like my personality!
+                </p>
+                <p>
+                    Currently pursuing my <span class="highlight">Master's in Computer Science</span> at Northeastern University, 
+                    I'm expanding my horizons while maintaining my love for clean, efficient code. 
+                    I believe in the power of technology to solve real-world problems.
+                </p>
+                <p>
+                    When I'm not coding, you'll find me writing poetry and sharing my creative thoughts on Instagram. 
+                    I bring the same creativity and attention to detail to my technical work that I do to my verses.
+                </p>
+                <p>
+                    <strong>Looking for Summer 2026 Internship Opportunities!</strong> 
+                    Ready to bring my electric energy and technical expertise to your team.
+                </p>
+            </div>
+            <div class="profile-image fade-in" onclick="openSkillsModal()">
+                ⚡
+            </div>
+        </div>
+    </section>
+
+    <!-- Experience Section -->
+    <section id="experience" class="section experience">
+        <h2 class="section-title fade-in">Professional Experience</h2>
+        <div class="experience-grid">
+            <div class="experience-item fade-in">
+                <h3>Senior Software Developer</h3>
+                <div class="company">NAB (National Australian Bank)</div>
+                <div class="duration">2022 - 2025</div>
+                <ul>
+                    <li>Led development of critical banking microservices using Java and Spring Boot</li>
+                    <li>Architected scalable payment processing systems handling millions of transactions</li>
+                    <li>Implemented robust security measures and compliance protocols for financial data</li>
+                    <li>Collaborated with cross-functional teams to deliver high-availability banking solutions</li>
+                    <li>Mentored junior developers and established coding best practices</li>
+                    <li>Optimized system performance resulting in 40% faster transaction processing</li>
+                </ul>
+            </div>
+            
+            <div class="experience-item fade-in">
+                <h3>Software Engineer</h3>
+                <div class="company">IBM</div>
+                <div class="duration">2020 - 2022</div>
+                <ul>
+                    <li>Developed enterprise-grade applications using Java, Spring Boot, and microservices</li>
+                    <li>Designed and implemented RESTful APIs for cloud-based solutions</li>
+                    <li>Worked with IBM Cloud platform and containerization technologies (Docker, Kubernetes)</li>
+                    <li>Participated in agile development processes and CI/CD pipeline implementation</li>
+                    <li>Contributed to open-source projects and internal tooling development</li>
+                    <li>Collaborated with global teams across different time zones</li>
+                </ul>
+            </div>
+
+            <div class="experience-item fade-in">
+                <h3>Junior Software Developer</h3>
+                <div class="company">Altran (Now Capgemini Engineering)</div>
+                <div class="duration">2019 - 2020</div>
+                <ul>
+                    <li>Started my professional journey developing Java-based applications</li>
+                    <li>Gained hands-on experience with Spring Framework and database technologies</li>
+                    <li>Worked on client projects involving backend system development</li>
+                    <li>Learned software engineering best practices and design patterns</li>
+                    <li>Contributed to team code reviews and documentation</li>
+                    <li>Built foundation in enterprise software development methodologies</li>
+                </ul>
+            </div>
+        </div>
+    </section>
+
+    <!-- Projects Section -->
+    <section id="projects" class="section projects">
+        <h2 class="section-title fade-in">Featured Projects ⚡</h2>
+        <div class="project-item fade-in">
+            <h3 class="project-title">Pathshala - Q&A Learning Platform</h3>
+            <p class="project-description">
+                A comprehensive question-and-answer platform designed to facilitate knowledge sharing and collaborative learning. 
+                Built with modern web technologies, Pathshala enables students and educators to engage in meaningful discussions, 
+                share resources, and build a community of learners.
+            </p>
+            
+            <div class="project-features">
+                <div class="feature-card">
+                    <div class="feature-icon">❓</div>
+                    <h4>Smart Q&A System</h4>
+                    <p>Intelligent question categorization and tagging system</p>
+                </div>
+                <div class="feature-card">
+                    <div class="feature-icon">🏆</div>
+                    <h4>Reputation System</h4>
+                    <p>Gamified points and badges for active contributors</p>
+                </div>
+                <div class="feature-card">
+                    <div class="feature-icon">🔍</div>
+                    <h4>Advanced Search</h4>
+                    <p>Full-text search with filters and sorting options</p>
+                </div>
+                <div class="feature-card">
+                    <div class="feature-icon">💬</div>
+                    <h4>Real-time Chat</h4>
+                    <p>Live discussion threads and instant notifications</p>
+                </div>
+            </div>
+
+            <div class="tech-stack">
+                <span class="tech-tag">Java</span>
+                <span class="tech-tag">Spring Boot</span>
+                <span class="tech-tag">Spring Security</span>
+                <span class="tech-tag">MySQL</span>
+                <span class="tech-tag">Redis</span>
+                <span class="tech-tag">WebSocket</span>
+                <span class="tech-tag">Docker</span>
+                <span class="tech-tag">AWS</span>
+            </div>
+        </div>
+    </section>
+
+    <!-- Leadership Section -->
+    <section id="leadership" class="section leadership">
+        <h2 class="section-title fade-in">Leadership & Mentorship ⚡</h2>
+        <div class="leadership-grid">
+            <div class="leadership-card fade-in">
+                <h3>Technical Leadership</h3>
+                <ul>
+                    <li>Led cross-functional teams of 8+ developers across multiple microservices projects</li>
+                    <li>Architected technical solutions for critical banking systems handling millions of transactions</li>
+                    <li>Established coding standards and best practices across development teams</li>
+                    <li>Made key technical decisions on system architecture and technology stack selection</li>
+                    <li>Drove innovation initiatives and proof-of-concept implementations</li>
+                </ul>
+            </div>
+            
+            <div class="leadership-card fade-in">
+                <h3>Mentorship & Development</h3>
+                <ul>
+                    <li>Mentored 5+ junior developers, providing guidance on career growth and technical skills</li>
+                    <li>Conducted regular code reviews and knowledge sharing sessions</li>
+                    <li>Created technical documentation and training materials for team onboarding</li>
+                    <li>Facilitated pair programming sessions to transfer domain knowledge</li>
+                    <li>Organized internal tech talks and workshops on emerging technologies</li>
+                </ul>
+            </div>
+            
+            <div class="leadership-card fade-in">
+                <h3>Public Speaking & Knowledge Sharing</h3>
+                <ul>
+                    <li>Delivered internal presentations on microservices architecture and best practices</li>
+                    <li>Conducted technical workshops on Spring Boot and Java optimization techniques</li>
+                    <li>Presented project demos to stakeholders and senior leadership</li>
+                    <li>Shared insights on system performance optimization and scalability</li>
+                    <li>Contributed to engineering culture through thought leadership and innovation</li>
+                </ul>
+            </div>
+        </div>
+    </section>
+
+    <!-- Awards Section -->
+    <section id="awards" class="section awards">
+        <h2 class="section-title fade-in">Recognition & Awards 🏆</h2>
+        <div class="awards-grid">
+            <div class="award-card fade-in">
+                <div class="award-icon">⚡</div>
+                <div class="award-title">SPOT Award</div>
+                <div class="award-company">NAB</div>
+                <div class="award-date">Sept 2024</div>
+                <p style="font-size: 0.9rem; margin-top: 0.5rem; opacity: 0.9;">For driving team efficiency and exceptional performance</p>
+            </div>
+            
+            <div class="award-card fade-in">
+                <div class="award-icon">⭐</div>
+                <div class="award-title">STAR Award</div>
+                <div class="award-company">NAB</div>
+                <div class="award-date">May 2024</div>
+                <p style="font-size: 0.9rem; margin-top: 0.5rem; opacity: 0.9;">For independently migrating microservices, demonstrating technical expertise</p>
+            </div>
+            
+            <div class="award-card fade-in">
+                <div class="award-icon">🎯</div>
+                <div class="award-title">Team Excellence 'WOW'</div>
+                <div class="award-company">Altran</div>
+                <div class="award-date">Jan 2022</div>
+                <p style="font-size: 0.9rem; margin-top: 0.5rem; opacity: 0.9;">For delivering high-quality releases under tight deadlines</p>
+            </div>
+            
+            <div class="award-card fade-in">
+                <div class="award-icon">🚀</div>
+                <div class="award-title">Team Excellence 'WOW'</div>
+                <div class="award-company">Altran</div>
+                <div class="award-date">Mar 2020</div>
+                <p style="font-size: 0.9rem; margin-top: 0.5rem; opacity: 0.9;">For building microservices-based application for SAMSUNG</p>
+            </div>
+        </div>
+    </section>
+
+    <!-- Skills Section -->
+    <section id="skills" class="section skills">
+        <h2 class="section-title fade-in">Technical Arsenal ⚡</h2>
+        <div class="skills-grid">
+            <div class="skill-category fade-in">
+                <h3>Backend Technologies</h3>
+                <div class="skill-tags">
+                    <span class="skill-tag">Java</span>
+                    <span class="skill-tag">Spring Boot</span>
+                    <span class="skill-tag">Spring Framework</span>
+                    <span class="skill-tag">Microservices</span>
+                    <span class="skill-tag">REST APIs</span>
+                </div>
+            </div>
+            
+            <div class="skill-category fade-in">
+                <h3>Databases & Tools</h3>
+                <div class="skill-tags">
+                    <span class="skill-tag">MySQL</span>
+                    <span class="skill-tag">PostgreSQL</span>
+                    <span class="skill-tag">MongoDB</span>
+                    <span class="skill-tag">Redis</span>
+                    <span class="skill-tag">Docker</span>
+                </div>
+            </div>
+            
+            <div class="skill-category fade-in">
+                <h3>Cloud & DevOps</h3>
+                <div class="skill-tags">
+                    <span class="skill-tag">AWS</span>
+                    <span class="skill-tag">Kubernetes</span>
+                    <span class="skill-tag">Jenkins</span>
+                    <span class="skill-tag">Git</span>
+                    <span class="skill-tag">CI/CD</span>
+                </div>
+            </div>
+            
+            <div class="skill-category fade-in">
+                <h3>Soft Skills</h3>
+                <div class="skill-tags">
+                    <span class="skill-tag">Leadership</span>
+                    <span class="skill-tag">Mentoring</span>
+                    <span class="skill-tag">Problem Solving</span>
+                    <span class="skill-tag">Team Collaboration</span>
+                    <span class="skill-tag">Creative Writing</span>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Education Section -->
+    <section id="education" class="section education">
+        <h2 class="section-title fade-in">Education</h2>
+        <div class="education-item fade-in">
+            <h3>Master of Science in Computer Science</h3>
+            <div class="university">Northeastern University, Boston</div>
+            <div class="degree">2025 - 2027 (Expected)</div>
+            <p>Pursuing Master's in Computer Science to broaden my technical foundation and explore next-generation development frameworks.
+                Enhancing my expertise in cloud computing, microservices orchestration, and advanced software architecture principles.</p>
+        </div>
+        
+        <div class="education-item fade-in">
+            <h3>Bachelor of Technology in Computer Science</h3>
+            <div class="university">Bansthali Vidhyapith, India</div>
+            <div class="degree">2015 - 2019</div>
+            <p>Foundation in computer science fundamentals, data structures, algorithms, and software engineering. 
+            Graduated with strong understanding of programming principles and system design.</p>
+        </div>
+    </section>
+
+    <!-- Community Section -->
+    <section id="community" class="section community">
+        <h2 class="section-title fade-in">Community Involvement 🌱</h2>
+        <div class="community-grid">
+            <div class="community-card fade-in">
+                <h3>Environmental Initiatives</h3>
+                <ul>
+                    <li>Participated in plantation drive hosted by NAB, contributing to environmental sustainability efforts (Feb 2023)</li>
+                    <li>Promoted eco-friendly practices and awareness within the organization</li>
+                    <li>Supported corporate social responsibility initiatives focused on environmental conservation</li>
+                </ul>
+            </div>
+            
+            <div class="community-card fade-in">
+                <h3>National Service Scheme (NSS)</h3>
+                <ul>
+                    <li>Active member of NSS at Banasthali University (Jan 2016 - Jan 2018)</li>
+                    <li>Participated in community development programs and social welfare activities</li>
+                    <li>Organized awareness campaigns and educational initiatives for rural communities</li>
+                    <li>Contributed to various social causes and volunteer work</li>
+                </ul>
+            </div>
+            
+            <div class="community-card fade-in">
+                <h3>Technical Leadership</h3>
+                <ul>
+                    <li>Worked as Coverage Team Lead for 'Mayukh'16', National Level Technical Fest at Banasthali University (Jan – Mar 2016)</li>
+                    <li>Led a team responsible for event coverage and media management</li>
+                    <li>Coordinated with multiple stakeholders to ensure successful execution of technical events</li>
+                    <li>Managed logistics and communication for large-scale technical competitions</li>
+                </ul>
+            </div>
+        </div>
+    </section>
+
+    <!-- Poetry Section -->
+    <section id="poetry" class="section poetry">
+        <div class="poetry-content fade-in">
+            <h3>⚡ When Code Meets Poetry ⚡</h3>
+            <p>
+                "In the silence of midnight,<br>
+                Where algorithms dance with dreams,<br>
+                I find my rhythm in the rhythm of code,<br>
+                And my soul in the spaces between."
+            </p>
+            <p>
+                Beyond the world of Java and Spring Boot, I'm a passionate poet who finds beauty in words. 
+                My Instagram is where I share my creative journey, blending the technical with the artistic.
+            </p>
+            <a href="https://instagram.com/your_poetry_handle" class="instagram-link" target="_blank">
+                <i class="fab fa-instagram"></i> Follow My Poetry Journey
+            </a>
+        </div>
+    </section>
+
+    <!-- Contact Section -->
+    <section id="contact" class="section contact">
+        <div class="contact-content fade-in">
+            <h3>Ready to Spark Something Amazing?</h3>
+            <p>
+                I'm actively seeking Summer 2026 internship opportunities where I can bring my 
+                electric energy, technical expertise, and creative problem-solving skills to your team.
+            </p>
+            <div class="contact-links">
+                <a href="mailto:sg.srashtigupta@gmail.com" class="contact-link">
+                    <i class="fas fa-envelope"></i> Email Me
+                </a>
+                <a href="https://linkedin.com/in/srashti-gupta-07b634151" class="contact-link" target="_blank">
+                    <i class="fab fa-linkedin"></i> LinkedIn
+                </a>
+                <a href="https://github.com/srashtigupta-25" class="contact-link" target="_blank">
+                    <i class="fab fa-github"></i> GitHub
+                </a>
+                <a href="https://instagram.com/invidioustart" class="contact-link" target="_blank">
+                    <i class="fab fa-instagram"></i> Poetry
+                </a>
+            </div>
+        </div>
+    </section>
+
+    <!-- Skills Modal -->
+    <div id="skillsModal" class="skills-modal">
+        <div class="skills-modal-content">
+            <button class="close-modal" onclick="closeSkillsModal()">&times;</button>
+            <h2 style="text-align: center; margin-bottom: 2rem; color: #FFD700;">⚡ Skill Levels ⚡</h2>
+            
+            <div class="skill-bar">
+                <div class="skill-label">
+                    <span>Java</span>
+                    <span>95%</span>
+                </div>
+                <div class="skill-progress">
+                    <div class="skill-fill" data-width="95"></div>
+                </div>
+            </div>
+            
+            <div class="skill-bar">
+                <div class="skill-label">
+                    <span>Spring Boot</span>
+                    <span>90%</span>
+                </div>
+                <div class="skill-progress">
+                    <div class="skill-fill" data-width="90"></div>
+                </div>
+            </div>
+            
+            <div class="skill-bar">
+                <div class="skill-label">
+                    <span>Microservices</span>
+                    <span>88%</span>
+                </div>
+                <div class="skill-progress">
+                    <div class="skill-fill" data-width="88"></div>
+                </div>
+            </div>
+            
+            <div class="skill-bar">
+                <div class="skill-label">
+                    <span>REST APIs</span>
+                    <span>92%</span>
+                </div>
+                <div class="skill-progress">
+                    <div class="skill-fill" data-width="92"></div>
+                </div>
+            </div>
+            
+            <div class="skill-bar">
+                <div class="skill-label">
+                    <span>MySQL</span>
+                    <span>85%</span>
+                </div>
+                <div class="skill-progress">
+                    <div class="skill-fill" data-width="85"></div>
+                </div>
+            </div>
+            
+            <div class="skill-bar">
+                <div class="skill-label">
+                    <span>Docker</span>
+                    <span>80%</span>
+                </div>
+                <div class="skill-progress">
+                    <div class="skill-fill" data-width="80"></div>
+                </div>
+            </div>
+            
+            <div class="skill-bar">
+                <div class="skill-label">
+                    <span>AWS</span>
+                    <span>70%</span>
+                </div>
+                <div class="skill-progress">
+                    <div class="skill-fill" data-width="75"></div>
+                </div>
+            </div>
+            
+            <div class="skill-bar">
+                <div class="skill-label">
+                    <span>Kubernetes</span>
+                    <span>70%</span>
+                </div>
+                <div class="skill-progress">
+                    <div class="skill-fill" data-width="70"></div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <script>
+        // Smooth scrolling for navigation links
+        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+            anchor.addEventListener('click', function (e) {
+                e.preventDefault();
+                const target = document.querySelector(this.getAttribute('href'));
+                if (target) {
+                    target.scrollIntoView({
+                        behavior: 'smooth',
+                        block: 'start'
+                    });
+                }
+            });
+        });
+
+        // Fade in animation on scroll
+        const observerOptions = {
+            threshold: 0.1,
+            rootMargin: '0px 0px -50px 0px'
+        };
+
+        const observer = new IntersectionObserver((entries) => {
+            entries.forEach(entry => {
+                if (entry.isIntersecting) {
+                    entry.target.classList.add('visible');
+                }
+            });
+        }, observerOptions);
+
+        document.querySelectorAll('.fade-in').forEach(el => {
+            observer.observe(el);
+        });
+
+        // Navbar background on scroll
+        window.addEventListener('scroll', () => {
+            const nav = document.querySelector('nav');
+            if (window.scrollY > 100) {
+                nav.style.background = 'rgba(255, 255, 255, 0.98)';
+                nav.style.boxShadow = '0 2px 20px rgba(0,0,0,0.1)';
+            } else {
+                nav.style.background = 'rgba(255, 255, 255, 0.95)';
+                nav.style.boxShadow = 'none';
+            }
+        });
+
+        // Skills Modal Functions
+        function openSkillsModal() {
+            const modal = document.getElementById('skillsModal');
+            modal.style.display = 'flex';
+            
+            // Animate progress bars
+            setTimeout(() => {
+                const skillFills = document.querySelectorAll('.skill-fill');
+                skillFills.forEach(fill => {
+                    const width = fill.getAttribute('data-width');
+                    fill.style.width = width + '%';
+                });
+            }, 100);
+        }
+
+        function closeSkillsModal() {
+            const modal = document.getElementById('skillsModal');
+            modal.style.display = 'none';
+            
+            // Reset progress bars
+            const skillFills = document.querySelectorAll('.skill-fill');
+            skillFills.forEach(fill => {
+                fill.style.width = '0%';
+            });
+        }
+
+        // Close modal when clicking outside
+        document.getElementById('skillsModal').addEventListener('click', (e) => {
+            if (e.target.id === 'skillsModal') {
+                closeSkillsModal();
+            }
+        });
+
+        // Add some interactive lightning effects
+        document.addEventListener('click', (e) => {
+            if (e.target.classList.contains('cta-button') || e.target.classList.contains('contact-link')) {
+                // Create a small lightning effect
+                const lightning = document.createElement('div');
+                lightning.style.position = 'fixed';
+                lightning.style.left = e.clientX + 'px';
+                lightning.style.top = e.clientY + 'px';
+                lightning.style.width = '4px';
+                lightning.style.height = '50px';
+                lightning.style.background = 'linear-gradient(45deg, #FFD700, #FFA500)';
+                lightning.style.pointerEvents = 'none';
+                lightning.style.zIndex = '9999';
+                lightning.style.animation = 'lightning 0.5s ease-out';
+                document.body.appendChild(lightning);
+                
+                setTimeout(() => {
+                    document.body.removeChild(lightning);
+                }, 500);
+            }
+        });
+    </script>
+</body>
+</html>
