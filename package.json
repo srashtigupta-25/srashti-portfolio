@@ -1,0 +1,47 @@
+{
+  "name": "srashti-portfolio",
+  "version": "1.0.0",
+  "description": "Dynamic React portfolio for Srashti - Senior Software Developer",
+  "homepage": "https://srashtigupta-25.github.io/srashti-portfolio",
+  "main": "index.js",
+  "scripts": {
+    "start": "react-scripts start",
+    "build": "react-scripts build",
+    "test": "react-scripts test",
+    "eject": "react-scripts eject",
+    "predeploy": "npm run build",
+    "deploy": "gh-pages -d build"
+  },
+  "dependencies": {
+    "framer-motion": "^10.16.4",
+    "react": "^18.2.0",
+    "react-dom": "^18.2.0",
+    "react-intersection-observer": "^9.5.2",
+    "react-scripts": "5.0.1",
+    "styled-components": "^6.1.1"
+  },
+  "browserslist": {
+    "production": [
+      ">0.2%",
+      "not dead",
+      "not op_mini all"
+    ],
+    "development": [
+      "last 1 chrome version",
+      "last 1 firefox version",
+      "last 1 safari version"
+    ]
+  },
+  "keywords": [
+    "portfolio",
+    "react",
+    "developer",
+    "java",
+    "spring-boot"
+  ],
+  "author": "Srashti Gupta",
+  "license": "MIT",
+  "devDependencies": {
+    "gh-pages": "^6.3.0"
+  }
+}
